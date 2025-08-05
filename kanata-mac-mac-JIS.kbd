@@ -17,7 +17,7 @@
 (defvar
     ;; 数値(時間)の単位: ms
     tap-time    200
-    hold-time   150
+    hold-time   175
     double-tap-time   300
     
     left-hand-keys (
@@ -49,9 +49,9 @@
     ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) rctl $right-hand-keys)
     en Lang2
     ja Lang1
-    hyper (tap-hold $tap-time $hold-time esc (layer-while-held hyper))      ;; タップ→ esc, 長押し→Hyperレイヤー
+    hyper (layer-while-held hyper)      ;; タップ→ esc, 長押し→Hyperレイヤー
     funct (tap-dance $double-tap-time (lsft (layer-while-held function)))   ;; タップor長押し→Left shift, 2回タップ+長押し→Functionレイヤー
-    fn (tap-hold $tap-time $hold-time fn (layer-while-held function))
+    fn    (tap-hold $tap-time $hold-time fn (layer-while-held function))
 )
 
 ;; 4. レイヤー定義
@@ -83,7 +83,7 @@
 (deflayer hyper
     _       _       _       _       _       _       _       _       _       _       _       _       _
             _       _       _       _       _       _       _       _       _       _       _       _       _
-    _       C-tab   bspc    up      del     C-S-tab _       _       _       _       _       _       _
+    esc     C-tab   bspc    up      del     C-S-tab _       _       _       _       _       _       _
     @hyper  home    lft     down    rght    end     _       @j      @k      @l      @;      _       _       _
     @funct  pgup    M-z     M-S-z   pgdn    _       _       _       _       _       _       _       _
     lctl    _       _                       ret                     @ja     @fn

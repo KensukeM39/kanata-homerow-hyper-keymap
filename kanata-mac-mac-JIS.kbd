@@ -98,10 +98,3 @@
     @funct  pgup    M-z     M-S-z   pgdn    kp0     kp1     kp2     kp3     -       kp/     _       _
     lctl    _       _                       _                       @ja     @fn
 )
-
-
-;; 設定方法(v1.9.0)：https://github.com/jtroo/kanata/blob/v1.9.0/docs/config.adoc
-;; コード一覧：https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
-;; キーコード：https://www.toptal.com/developers/keycode
-;; キーボードテスト：https://www.onlinemictest.com/ja/keyboard-test/
-;; サンプル：https://github.com/jtroo/kanata/tree/main/cfg_sampless

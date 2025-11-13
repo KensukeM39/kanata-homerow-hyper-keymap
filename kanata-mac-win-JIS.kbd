@@ -16,7 +16,7 @@
 (defvar
     ;; 数値(時間)の単位: ms
     tap-time    200
-    hold-time   150
+    hold-time   175
     double-tap-time   300
     
     left-hand-keys (
@@ -92,10 +92,3 @@
     @funct  pgup    M-z     M-S-z   pgdn    kp0     kp1     kp2     kp3     -       kp/     _       _
     lctl    _       _                       _                       @ja     _
 )
-
-
-;; 設定方法(v1.9.0)：https://github.com/jtroo/kanata/blob/v1.9.0/docs/config.adoc
-;; コード一覧：https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
-;; キーコード：https://www.toptal.com/developers/keycode
-;; キーボードテスト：https://www.onlinemictest.com/ja/keyboard-test/
-;; サンプル：https://github.com/jtroo/kanata/tree/main/cfg_samples

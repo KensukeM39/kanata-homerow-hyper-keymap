@@ -1,5 +1,3 @@
-Editing now...
-
 <h1 align="center">Kanata Homerow Hyper Keymap</h1>
 
 <h3 align="center">
@@ -11,27 +9,42 @@ Editing now...
   />
 </h3>
 
-<div align="center">
-  text
-</div>
-
-
 ## Kanata Home Row Mods + Hyper Keymap
+Cross-Platform Custom Keyboard Remap for macOS
 
-Custom keyboard configuration for [Kanata](https://github.com/jtroo/kanata) focused on comfort and efficiency.  
-Supports Home Row Modifiers, Hyper layer, and cross-platform key remapping for macOS & Windows.
+Custom keyboard configuration for [Kanata](https://github.com/jtroo/kanata) focused on comfort, efficiency, and ergonomic consistency across different keyboard types.
 
-🔹 Ideal for: programmers, typists, and keyboard enthusiasts  
-🔹 Features: tap-hold, navigation layers, function layers
+🔹 Ideal for: programmers, typists, and keyboard enthusiasts
+
+🔹 Features: home row modifiers, hyper & function layers, numpad emulation
+
+🔹 Platform: macOS (JIS / US keyboards, both Mac & Windows hardware)
+
+## Motivation
+
+- The CapsLock key, though easily reachable, is rarely used — I wanted to make better use of it.
+- I initially tried Karabiner-Elements, but its macOS-only nature made it difficult to reproduce the same behavior across environments.
+- Therefore, I chose Kanata, a cross-platform key remapping tool written in Rust, to build a consistent layout usable across macOS setups.
+
+This project provides three configuration files, each tailored to a specific keyboard type used on macOS:
+
+| File                     | Target Keyboard  | Layout | OS    |
+| ------------------------ | ---------------- | ------ | ----- |
+| `kanata-mac-mac-JIS.kbd` | Apple Keyboard   | JIS    | macOS |
+| `kanata-mac-mac-US.kbd`  | Apple Keyboard   | US     | macOS |
+| `kanata-mac-win-JIS.kbd` | Windows Keyboard | JIS    | macOS |
 
 ## Design Philosophy
 
-I created this configuration to reduce hand movement, improve typing ergonomics, and unify behavior across macOS and Windows.
+This configuration was designed to minimize hand movement and unify modifier behavior between different keyboard layouts.
+It enables comfortable typing and seamless workflow switching across devices.
 
 Key ideas:
-- Home Row Mods reduce pinky strain
-- Hyper Layer enables fast window navigation and shortcuts
-- Inspired by QMK and Vim navigation, but works on any keyboard
+- Home Row Mods: assign modifiers (Ctrl, Alt, Shift, Cmd) to the home row keys.
+  → improves ergonomics and reduces pinky strain.
+- Hyper Layer: allows quick navigation (arrows, tab switching, window movement).
+- Function Layer: brings back numpad and shortcut functionality even on compact keyboards.
+- Inspired by QMK, Vim-style navigation, and Kanata’s simplicity.
 
 ## Configuration Overview
 
@@ -44,41 +57,55 @@ Key ideas:
 | F   | Cmd  | F   |
 ...
 
-### Layers:
-- **Base**: Normal typing
-- **Hyper**: Navigation (arrows, page keys, tab switching)
-- **Function**: Numpad and shortcuts
+### Layer Structure
+```
+[Base Layer]
+  ├── Home Row Mods
+  ├── Hyper (Navigation)
+  └── Function (Numpad, Shortcuts)
+```
+- Base: Normal typing, with home row modifiers
+- Hyper: Arrows, Page keys, and tab/window navigation
+- Function: Numpad and editor shortcuts for 60% keyboards
 
-## Installation
+## Installation (macOS)
 
-### macOS
-1. Install Kanata: `brew install kanata`
-2. Place `kanata.kbd` in `~/.config/kanata/`
-3. Run: `kanata --cfg ~/.config/kanata/kanata.kbd`
-
-### Windows
-1. Install with `cargo install kanata --features interception_driver`
-2. Place config and run:
-   ```bash
-   kanata.exe --cfg C:\Users\YourName\kanata-windows.kbd
-
-For background execution, see: kanata-tray
 
 ## Files
 
-- `kanata.kbd`: Main config (macOS/Linux)
-- `kanata-windows.kbd`: Windows config (to be released)
-- `README.md`: Setup and philosophy
+| File                     | Description                                   |
+| ------------------------ | --------------------------------------------- |
+| `kanata-mac-mac-JIS.kbd` | for macOS, Apple JIS keyboard                 |
+| `kanata-mac-mac-US.kbd`  | for macOS, Apple US keyboard                  |
+| `kanata-mac-win-JIS.kbd` | for macOS, Windows JIS keyboard               |
+| `README.md`              | this document (setup, philosophy, references) |
+
+## Respect for the Original Project
+
+This work is built upon the excellent open-source project [Kanata](https://github.com/jtroo/kanata) created by [jtroo](https://github.com/jtroo).
+All credit for the underlying system, configuration syntax, and runtime behavior belongs to the Kanata team.
+
+This repository only provides user-level configuration files — no core code has been modified.
+I deeply respect the original developers and recommend reading their documentation to understand Kanata’s full capabilities.
+
+> If you find this configuration useful, please consider starring or contributing to the original Kanata repository as well.
 
 ## References
+- [Kanata](https://github.com/jtroo/kanata) ← main project
+- [Kanata Documentation (config.adoc)](https://github.com/jtroo/kanata/blob/main/docs/config.adoc)
+- [Kanata Sample Configs](https://github.com/jtroo/kanata/tree/main/cfg_samples)
+- [Key List](https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs)
+- [JavaScript Key Code Reference](https://www.toptal.com/developers/keycode)
+- [Online Keyboard Test Tool](https://www.onlinemictest.com/keyboard-test/)
 
-- [Kanata documentation](https://github.com/jtroo/kanata/blob/main/docs/config.adoc)
-- [Kanata sample configs](https://github.com/jtroo/kanata/tree/main/cfg_samples)
-- [QMK Firmware](https://qmk.fm/)
-- [Keyboard ergonomics](https://wiki.archlinux.org/title/Keyboard_configuration_in_Xorg)
+## Learn More
 
-## Learn more
-
-I also wrote an article explaining the design thinking and implementation on Qiita (Japanese):
+I’m also writing a Japanese article on Qiita explaining the design process and ergonomic considerations behind this setup.
 
 👉 [カスタムキーボード設定をKanataで実現した話](#)（近日公開予定）
+
+# License
+
+This configuration is distributed under the MIT License.
+You are free to use, modify, and share it under proper attribution.
+Kanata itself is licensed under LGPL-3.0, which remains applicable to its codebase.

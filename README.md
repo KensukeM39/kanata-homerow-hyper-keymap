@@ -1,5 +1,11 @@
 <h1 align="center">Kanata Homerow Hyper Keymap</h1>
 
+<div align="center">
+  
+  [README (Japanese)](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/README-JP.md)
+  
+</div>
+
 <h3 align="center">
   <img
     alt=""
@@ -49,24 +55,44 @@ Key ideas:
 ## Configuration Overview
 
 ### Home Row Modifiers (Hold for modifier / Tap for character)
-| Key | Hold | Tap |
-|-----|------|-----|
-| A   | Ctrl | A   |
-| S   | Alt  | S   |
-| D   | Shift| D   |
-| F   | Cmd  | F   |
-...
+
+| Key | Tap | Hold  |
+| --- | --- | ----- |
+| A   | A   | Left Ctrl   |
+| S   | S   | Left Option |
+| D   | D   | Left Shift  |
+| F   | F   | Left Cmd    |
+| J   | J   | Right Cmd   |
+| K   | K   | Right Shift |
+| L   | L   | Right Option|
+| ;   | ;   | Right Ctrl  |
 
 ### Layer Structure
 ```
-[Base Layer]
-  ├── Home Row Mods
-  ├── Hyper (Navigation)
-  └── Function (Numpad, Shortcuts)
+[Base Layer (+ Home Row Mods)]
+  ├── Hyper Layer (Navigation, Home Row Mods)
+  └── Function Layer (Navigation, Numpad, Shortcuts)
 ```
 - Base: Normal typing, with home row modifiers
 - Hyper: Arrows, Page keys, and tab/window navigation
 - Function: Numpad and editor shortcuts for 60% keyboards
+
+### Keymap Images
+
+<details>
+  <summary>Base Layer</summary>
+    <img width="1287" height="530" alt="macOS-US_base" src="https://github.com/user-attachments/assets/72b7947c-bde7-4dbf-a4ee-bf32fdd8c08f" />
+</details>
+
+<details>
+  <summary>Hyper Layer (Hold Left capslock)</summary>
+    <img width="1287" height="530" alt="macOS-US_hyper" src="https://github.com/user-attachments/assets/74481466-a1c9-499d-9eb1-6c4607aefbbb" />
+</details>
+
+<details>
+  <summary>Function Layer (Double-tap and hold Left Shift)</summary>
+    <img width="1287" height="530" alt="macOS-US_function" src="https://github.com/user-attachments/assets/ce930bb3-f350-436b-a04c-9392cf7fb570" />
+</details>
 
 ## Installation (macOS)
 

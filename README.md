@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  [README (Japanese)](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/README-JP.md)
+  [README (Japanese)](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/blob/main/README-JP.md)
   
 </div>
 
@@ -36,9 +36,9 @@ This project provides three configuration files, each tailored to a specific key
 
 | File                     | Target Keyboard  | Layout | OS    |
 | ------------------------ | ---------------- | ------ | ----- |
-| `kanata-mac-mac-JIS.kbd` | Apple Keyboard   | JIS    | macOS |
-| `kanata-mac-mac-US.kbd`  | Apple Keyboard   | US     | macOS |
-| `kanata-mac-win-JIS.kbd` | Windows Keyboard | JIS    | macOS |
+| [`kanata-mac-mac-JIS.kbd`](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/blob/main/kanata-mac-mac-JIS.kbd) | Apple Keyboard   | JIS    | macOS |
+| [`kanata-mac-mac-US.kbd`](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/blob/main/kanata-mac-mac-US.kbd)  | Apple Keyboard   | US     | macOS |
+| [`kanata-mac-win-JIS.kbd`](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/blob/main/kanata-mac-win-JIS.kbd) | Windows Keyboard | JIS    | macOS |
 
 ## Design Philosophy
 
@@ -101,10 +101,11 @@ Key ideas:
 
 | File                     | Description                                   |
 | ------------------------ | --------------------------------------------- |
-| `kanata-mac-mac-JIS.kbd` | for macOS, Apple JIS keyboard                 |
-| `kanata-mac-mac-US.kbd`  | for macOS, Apple US keyboard                  |
-| `kanata-mac-win-JIS.kbd` | for macOS, Windows JIS keyboard               |
-| `README.md`              | this document (setup, philosophy, references) |
+| [`kanata-mac-mac-JIS.kbd`](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/blob/main/kanata-mac-mac-JIS.kbd) | for macOS, Apple JIS keyboard                 |
+| [`kanata-mac-mac-US.kbd`](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/blob/main/kanata-mac-mac-US.kbd)  | for macOS, Apple US keyboard                  |
+| [`kanata-mac-win-JIS.kbd`](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/blob/main/kanata-mac-win-JIS.kbd) | for macOS, Windows JIS keyboard               |
+| `README.md`              | this document |
+| [`README-JP.md`](https://github.com/KensukeM39/kanata-homerow-hyper-keymap/blob/main/README-JP.md)              | Japanese Ver. document |
 
 ## Respect for the Original Project
 
@@ -117,7 +118,7 @@ I deeply respect the original developers and recommend reading their documentati
 > If you find this configuration useful, please consider starring or contributing to the original Kanata repository as well.
 
 ## References
-- [Kanata](https://github.com/jtroo/kanata) ← main project
+- [Kanata](https://github.com/jtroo/kanata)
 - [Kanata Documentation (config.adoc)](https://github.com/jtroo/kanata/blob/main/docs/config.adoc)
 - [Kanata Sample Configs](https://github.com/jtroo/kanata/tree/main/cfg_samples)
 - [Key List](https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs)

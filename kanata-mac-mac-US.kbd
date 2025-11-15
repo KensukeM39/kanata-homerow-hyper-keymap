@@ -9,14 +9,14 @@
             1       2       3       4       5       6       7       8       9       0       -       =       bspc
     tab     q       w       e       r       t       y       u       i       o       p       ⎡       ⎣       \
     caps    a       s       d       f       g       h       j       k       l       ;       apo     ret
-    lsft    z       x       c       v       b       n       m       ,       .       /       ro      rsft
-    lctl    lalt    lmet                    spc                     rmet    fn
+    lsft    z       x       c       v       b       n       m       ,       .       /       rsft
+    fn      lctl    lalt    lmet            spc                     rmet    ralt
 )
 
 ;; 2. 変数の定義
 (defvar
     ;; 数値(時間)の単位: ms
-    tap-time    200
+    tap-time    175
     hold-time   175
     double-tap-time   300
     
@@ -51,7 +51,6 @@
     ja Lang1
     hyper (layer-while-held hyper)      ;; タップ→ esc, 長押し→Hyperレイヤー
     funct (tap-dance $double-tap-time (lsft (layer-while-held function)))   ;; タップor長押し→Left shift, 2回タップ+長押し→Functionレイヤー
-    fn    (tap-hold $tap-time $hold-time fn (layer-while-held function))
 )
 
 ;; 4. レイヤー定義
@@ -61,8 +60,8 @@
             _       _       _       _       _       _       _       _       _       _       _       _       _
     _       _       _       _       _       _       _       _       _       _       _       _       _       _
     @hyper  @a      @s      @d      @f      _       _       @j      @k      @l      @;      _       _
-    @funct  _       _       _       _       _       _       _       _       _       _       _       _
-    _       _       _                       _                       @en     @fn
+    @funct  _       _       _       _       _       _       _       _       _       _       _
+    _       _       _       _               _                       @en     fn
 )
 
 ;; --- nomodsレイヤー ---
@@ -71,8 +70,8 @@
             _       _       _       _       _       _       _       _       _       _       _       _       _
     _       _       _       _       _       _       _       _       _       _       _       _       _       _
     @hyper  a       s       d       f       _       _       j       k       l       ;       _       _
-    @funct  _       _       _       _       _       _       _       _       _       _       _       _
-    _       _       _                       _                       @en     @fn
+    @funct  _       _       _       _       _       _       _       _       _       _       _
+    _       _       _       _               _                       @en     fn
 )
 
 (deffakekeys
@@ -85,16 +84,16 @@
             _       _       _       _       _       _       _       _       _       _       _       _       _
     esc     C-tab   bspc    up      del     C-S-tab _       _       _       _       _       _       _       _
     @hyper  home    lft     down    rght    end     _       @j      @k      @l      @;      _       _
-    @funct  pgup    M-z     M-S-z   pgdn    _       _       _       _       _       _       _       _
-    _       _       _                       ret                     @ja     @fn
+    @funct  pgup    M-z     M-S-z   pgdn    _       _       _       _       _       _       _
+    _       _       _       _               ret                     @ja     fn
 )
 
 ;; --- Functionレイヤー ---
 (deflayer function
     _       brdn    brup    mctl    sls     dtn     dnd     prev    pp      next    mute    voldwn  volu
-            f1      f2      f3      f4      f5      f6      f7      f8      f9      f10     f11     f12     del
+            f1      f2      f3      f4      f5      f6      f7      f8      f9      f10     f11     f12     _
     _       C-tab   bspc    up      del     C-S-tab kp,     kp7     kp8     kp9     S--     ret     _       _
     @hyper  home    lft     down    rght    end     kp.     kp4     kp5     kp6     kp+     kp*     _
-    @funct  pgup    M-z     M-S-z   pgdn    kp0     kp1     kp2     kp3     -       kp/     _       _
-    _       _       _                       _                       @ja     @fn
+    @funct  pgup    M-z     M-S-z   pgdn    kp0     kp1     kp2     kp3     -       kp/     _
+    _       _       _       _               _                       @ja     fn
 )

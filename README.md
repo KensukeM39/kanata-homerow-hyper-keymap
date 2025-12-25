@@ -95,7 +95,105 @@ Key ideas:
 </details>
 
 ## Installation (macOS)
+1. Install Kanata (using Homebrew)
+```bash
+brew install kanata
 
+```
+
+2. Restart the terminal and verify that Kanata is installed correctly
+```bash
+kanata -V
+
+```
+
+# Startup Configuration (LaunchCtl)
+
+Configure Kanata to start automatically when the PC boots up.
+Please refer to [#1537](https://github.com/jtroo/kanata/discussions/1537).
+
+Notes and supplementary information are provided below.
+
+---
+
+First, create the configuration file `/Library/LaunchDaemons/com.kanata.launch.plist`.
+
+<details>
+<summary>How to create the file using Vim</summary>
+
+1. Run the following command:
+```bash
+sudo vim /Library/LaunchDaemons/com.kanata.launch.plist
+
+```
+
+
+2. Press the `i` key to enter **Insert mode**.
+3. Copy and paste the XML code below (be sure to replace the `<string>/Users/<userID>/...` part with your own username).
+4. Press the `Esc` key to return to **Command mode**.
+5. Type `:wq` and press Enter to save and exit.
+
+</details>
+
+**File Content:**
+*Note: Please replace `<userID>` with your actual username (you can check this using the `whoami` command).*
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.kanata.launch</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/kanata</string>
+        <string>-c</string>
+        <string>/Users/<userID>/.config/kanata/kanata.kbd</string>
+        <string>--port</string>
+        <string>10000</string>
+        <string>--debug</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Library/Logs/Kanata/kanata.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Library/Logs/Kanata/kanata.err.log</string>
+</dict>
+</plist>
+
+```
+
+### Enabling the Service
+
+Execute the following commands in order to register and start the service.
+
+```bash
+# Load the service
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.kanata.launch.plist
+
+# Enable the service
+sudo launchctl enable system/com.kanata.launch
+
+# Start the service (alternatively, you can restart your PC)
+sudo launchctl start com.kanata.launch
+
+```
+
+If it does not work properly, try running `bootout` first, and then try `bootstrap` again.
+
+```bash
+sudo launchctl bootout system /Library/LaunchDaemons/com.kanata.launch.plist
+
+```
 
 ## Files
 

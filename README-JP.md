@@ -95,7 +95,98 @@
 </details>
 
 ## インストール方法 (macOS)
+1. Kanata のインストール（Homebrew を使用してインストールする場合）
+```
+brew install kanata
+```
 
+2. Tearminal を再起動し、Kanata が正常にインストールされたか確認
+```
+kanata -V
+```
+
+## スタートアップ設定 (LaunchCtl)
+
+PC起動時に自動的に Kanata が立ち上がるよう設定します。
+[#1537](https://github.com/jtroo/kanata/discussions/1537) を参照してください。
+
+注意点や補足等を記載します。
+
+---
+
+まず、設定ファイル `/Library/LaunchDaemons/com.kanata.launch.plist` を作成します。
+
+<details>
+<summary>Vim を使ったファイルの作成方法</summary>
+
+1. 以下のコマンドを実行します。
+   ```bash
+   sudo vim /Library/LaunchDaemons/com.kanata.launch.plist
+   ```  　
+2. `i` キーを押して入力モードにします。
+3. 下記のXMLコードをコピーして貼り付けます（`<string>/Users/<userID>/...` の部分は自分のユーザー名に書き換えてください）。
+4. `Esc` キーを押してコマンドモードに戻ります。
+5. `:wq` と入力して Enter を押し、保存して終了します。
+
+</details>
+
+**ファイル内容:**
+※ 注意: `<userID>` の部分はご自身のユーザー名（`whoami` コマンドで確認可能）に書き換えてください。
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "[http://www.apple.com/DTDs/PropertyList-1.0.dtd](http://www.apple.com/DTDs/PropertyList-1.0.dtd)">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.kanata.launch</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/kanata</string>
+        <string>-c</string>
+        <string>/Users/<userID>/.config/kanata/kanata.kbd</string>
+        <string>--port</string>
+        <string>10000</string>
+        <string>--debug</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Library/Logs/Kanata/kanata.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Library/Logs/Kanata/kanata.err.log</string>
+</dict>
+</plist>
+```
+
+### サービスの有効化
+
+以下のコマンドを順に実行してサービスを登録・起動します。
+
+```bash
+# サービスのロード
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.kanata.launch.plist
+
+# サービスの有効化
+sudo launchctl enable system/com.kanata.launch
+
+# サービスの開始（またはPC再起動でも可）
+sudo launchctl start com.kanata.launch
+```
+
+もし上手くいかない場合は、一度 `bootout` してから再度 `bootstrap` を試してください。
+
+```bash
+sudo launchctl bootout system /Library/LaunchDaemons/com.kanata.launch.plist
+
+```
 
 ## ファイル
 

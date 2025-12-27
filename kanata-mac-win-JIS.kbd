@@ -16,7 +16,7 @@
 (defvar
     ;; 数値(時間)の単位: ms
     tap-time    200
-    hold-time   175
+    hold-time   200
     double-tap-time   300
     
     left-hand-keys (

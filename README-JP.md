@@ -17,7 +17,7 @@
 
 ## Kanata Home Row Mods + Hyper Keymap
 
-[Kanata](https://github.com/jtroo/kanata) というOSSを用いた、macOS向けカスタムキーボード設定になります。
+[Kanata](https://github.com/jtroo/kanata) という OSS を用いた、macOS 向けカスタムキーボード設定になります。
 
 快適さ、効率性、そして異なるキーボード（JIS/US、Mac/Windows）間において人間工学的な一貫性を最重要視して設計しています。
 
@@ -29,11 +29,11 @@
 
 ## 開発動機
 
-- CapsLockキーの有効活用：CapsLockキーは非常に押しやすい位置にあるにも関わらず、ほとんど使われていない。どうにか有効活用したいと考えた。
-- クロスプラットフォームへのこだわり：当初はmacOSで定番のKarabiner-Elementsを試したが、macOS専用であるため、異なるOS環境（Windows）での導入が不可能だった。
-- Kanataの選択：そこで、クロスプラットフォームで動作するKanataを選択し、macOS上であっても、将来的に他の環境でも再現可能な、一貫したキーレイアウトを構築することに決めた。
+- CapsLock キーの有効活用：CapsLock キーは非常に押しやすい位置にあるにも関わらず、ほとんど使われていない。どうにか有効活用したいと考えた。
+- クロスプラットフォームへのこだわり：当初は macOS で定番の Karabiner-Elements を試したが、macOS 専用であるため、異なる OS 環境（Windows）での導入が不可能だった。
+- Kanata の選択：そこで、クロスプラットフォームで動作する Kanata を選択し、macOS 上であっても、将来的に他の環境でも再現可能な、一貫したキーレイアウトを構築することに決めた。
 
-このプロジェクトでは、macOS環境で使用される主要なキーボードタイプに合わせた、以下の3つの設定ファイルを作成しました。
+このプロジェクトでは、macOS 環境で使用される主要なキーボードタイプに合わせた、以下の3つの設定ファイルを作成しました。
 
 | ファイル                     | 対象キーボード | 配列 | OS    |
 | ------------------------ | ---------------- | ------ | ----- |
@@ -43,14 +43,14 @@
 
 ## 設計思想
 
-キーマップを考えるにあたって、タイピング中の手の動きを最小限に抑え、異なるキーボードレイアウト間（US/JIS配列）での修飾キーの振る舞いを統一することを目指して設計しました。
+キーマップを考えるにあたって、タイピング中の手の動きを最小限に抑え、異なるキーボードレイアウト間（US/JIS 配列）での修飾キーの振る舞いを統一することを目指して設計しました。
 
 アイデア：
 - Home Row Mods：修飾キー（Ctrl, Option, Shift, Cmd）をホームポジションのキー（A, S, D, Fなど）に割り当て。
   - 効果：ホームポジションから大きくずらすことなく、操作性の効率化を実現。
-- Hyperレイヤー：従来のCapsLockキーを押している間、独自開発したキーマップに切り替える。矢印キー、タブ切り替え、ウィンドウ移動、範囲選択などをホームポジションから手を動かさずに素早く行える。
-- Functionレイヤー：Hyperレイヤーの機能（一部）に加えて、コンパクトなキーボードでも、テンキー機能の呼び出しやファンクションキーを押しやすい位置に配置。
-- 着想：QMKファームウェアの思想、Vimスタイルのナビゲーション、そしてKanata自体の持つシンプルさから着想を得ています。
+- Hyper レイヤー：従来の CapsLock キーを押している間、独自開発したキーマップに切り替える。矢印キー、タブ切り替え、ウィンドウ移動、範囲選択などをホームポジションから手を動かさずに素早く行える。
+- Function レイヤー：Hyper レイヤーの機能（一部）に加えて、コンパクトなキーボードでも、テンキー機能の呼び出しやファンクションキーを押しやすい位置に配置。
+- 着想：QMK ファームウェアの思想、Vim スタイルのナビゲーション、そして Kanata 自体の持つシンプルさから着想を得ています。
 
 ## 設定の概要
 
@@ -69,28 +69,28 @@
 
 ### レイヤー構造
 ```
-[Baseレイヤー (+ Home Row Mods)]
-  ├── Hyperレイヤー (ナビゲーション、Home Row Mods)
-  └── Functionレイヤー (ナビゲーション、テンキー、各種ショートカット)
+[Base レイヤー (+ Home Row Mods)]
+  ├── Hyper レイヤー (ナビゲーション、Home Row Mods)
+  └── Function レイヤー (ナビゲーション、テンキー、各種ショートカット)
 ```
-- Base：通常のタイピングレイヤー。Home Row Modsが有効。
+- Base：通常のタイピングレイヤー。Home Row Mods が有効。
 - Hyper：矢印キー、PageUP/Down、Home/End, タブ/ウィンドウ操作。
-- Function：テンキー、および60%キーボードなどで不足しがちなエディタショートカットを配置。
+- Function：テンキー、および 60% キーボードなどで不足しがちなエディタショートカットを配置。
 
 ### キーマップのイメージ図
 
 <details>
-  <summary>Baseレイヤー</summary>
+  <summary>Base レイヤー</summary>
     <img width="1287" height="530" alt="macOS-US_base" src="https://github.com/user-attachments/assets/72b7947c-bde7-4dbf-a4ee-bf32fdd8c08f" />
 </details>
 
 <details>
-  <summary>Hyperレイヤー（CapsLockを長押し）</summary>
+  <summary>Hyper レイヤー（CapsLockを長押し）</summary>
     <img width="1287" height="530" alt="macOS-US_hyper" src="https://github.com/user-attachments/assets/74481466-a1c9-499d-9eb1-6c4607aefbbb" />
 </details>
 
 <details>
-  <summary>Functionレイヤー（左Shiftを2回タップして長押し）</summary>
+  <summary>Function レイヤー（左Shiftを2回タップして長押し）</summary>
     <img width="1287" height="530" alt="macOS-US_function" src="https://github.com/user-attachments/assets/ce930bb3-f350-436b-a04c-9392cf7fb570" />
 </details>
 
@@ -103,6 +103,13 @@ brew install kanata
 2. Tearminal を再起動し、Kanata が正常にインストールされたか確認
 ```
 kanata -V
+```
+
+3. Kanata の設定ファイル(`.kbd`)をパス`/Users/<userID>/.config/kanata/`の配下においてください。
+
+例（ユーザ名が `KensukeM`　の場合）：
+```
+/Users/KensukeM/.config/kanata/kanata.kbd
 ```
 
 ## スタートアップ設定 (LaunchCtl)
@@ -124,14 +131,17 @@ PC起動時に自動的に Kanata が立ち上がるよう設定します。
    sudo vim /Library/LaunchDaemons/com.kanata.launch.plist
    ```  　
 2. `i` キーを押して入力モードにします。
-3. 下記のXMLコードをコピーして貼り付けます（`<string>/Users/<userID>/...` の部分は自分のユーザー名に書き換えてください）。
+3. 下記の XML コードをコピーして貼り付けます（`<string>/Users/<userID>/...` の部分は自分のユーザー名に書き換えてください）。
 4. `Esc` キーを押してコマンドモードに戻ります。
 5. `:wq` と入力して Enter を押し、保存して終了します。
 
 </details>
 
 **ファイル内容:**
-※ 注意: `<userID>` の部分はご自身のユーザー名（`whoami` コマンドで確認可能）に書き換えてください。
+
+※ 注意1: `<userID>` の部分はご自身のユーザー名（`whoami` コマンドで確認可能）に書き換えてください。
+
+※ 注意2: 先ほど`/Users/KensukeM/.config/kanata/`配下に置いた`.kbd`ファイルの名前に合わせて参照するパス（`/Users/<userID>/.config/kanata/kanata.kbd`の部分）を書き換えてください。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -202,28 +212,28 @@ sudo launchctl bootout system /Library/LaunchDaemons/com.kanata.launch.plist
 ## オリジナルプロジェクトへの敬意
 
 この成果物は、[jtroo](https://github.com/jtroo)氏によって作成された素晴らしいオープンソースプロジェクト [Kanata](https://github.com/jtroo/kanata)  の上に成り立っています。
-このリポジトリは、あくまでユーザーレベルの設定ファイルを提供するものであり、Kanataのコアコードは一切変更していません。
+このリポジトリは、あくまでユーザーレベルの設定ファイルを提供するものであり、Kanata のコアコードは一切変更していません。
 
-オリジナルの開発者に深く敬意を表するとともに、Kanataの全機能を理解するために、ぜひ公式ドキュメントを読むことをお勧めします。
+オリジナルの開発者に深く敬意を表するとともに、Kanata の全機能を理解するために、ぜひ公式ドキュメントを読むことをお勧めします。
 
-> もしこの設定が役に立ったと感じたら、ぜひオリジナルのKanataリポジトリにもスターを付けたり、Contributeをご検討ください！
+> もしこの設定が役に立ったと感じたら、ぜひオリジナルの Kanata リポジトリにもスターを付けたり、Contribute をご検討ください！
 
 ## 参考資料
 - [Kanata](https://github.com/jtroo/kanata)
 - [Kanata ドキュメント (config.adoc)](https://github.com/jtroo/kanata/blob/main/docs/config.adoc)
 - [Kanata 設定サンプル集](https://github.com/jtroo/kanata/tree/main/cfg_samples)
-- [キーリスト（Kanata内部）](https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs)
+- [キーリスト（Kanata 内部）](https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs)
 - [JavaScript Key Code Reference（キーコードの確認用）](https://www.toptal.com/developers/keycode)
 - [Online Keyboard Test Tool（動作確認用）](https://www.onlinemictest.com/keyboard-test/)
 
-## 詳細（Qiita記事）
+## 詳細（Qiita 記事）
 
-この設定の設計プロセスや、人間工学的な考慮事項について、Qiitaの方で記事を執筆中です。
+このプロジェクトの開発経緯や設計思想、こだわりなどについて、Qiita に投稿したので良ければご覧ください！
 
-👉 [カスタムキーボード設定をKanataで実現した話](#)（近日公開予定）
+👉 [Rust 製ツール「Kanata」× Home Row Mods × Hyper Layer により操作性・作業効率の向上を目指すカスタムキーマップ構築録](https://qiita.com/KensukeM/items/2030532d6cd4ec248281)
 
 # ライセンス
 
-この設定ファイル群は、MITライセンスの下で配布されます。 適切な帰属表示（クレジット表記）を行えば、自由に使用、変更、共有することができます。
+この設定ファイル群は、MIT ライセンスの下で配布されます。 適切な帰属表示（クレジット表記）を行えば、自由に使用、変更、共有することができます。
 
-なお、Kanata本体はLGPL-3.0でライセンスされており、これはKanataのコードベースに引き続き適用されます。
+なお、Kanata 本体は LGPL-3.0 でライセンスされており、これは Kanata のコードベースに引き続き適用されます。

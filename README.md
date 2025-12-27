@@ -107,6 +107,13 @@ kanata -V
 
 ```
 
+3. Place the Kanata configuration file (.kbd) in the /Users/<userID>/.config/kanata/ directory.
+
+Example (if the username is `KensukeM`):
+```
+/Users/KensukeM/.config/kanata/
+```
+
 # Startup Configuration (LaunchCtl)
 
 Configure Kanata to start automatically when the PC boots up.
@@ -136,7 +143,10 @@ sudo vim /Library/LaunchDaemons/com.kanata.launch.plist
 </details>
 
 **File Content:**
-*Note: Please replace `<userID>` with your actual username (you can check this using the `whoami` command).*
+
+*Note 1: Please replace `<userID>` with your actual username (you can check this using the `whoami` command).*
+
+*Note 2: Please update the reference path (`/Users/<userID>/.config/kanata/kanata.kbd`) to match the filename of the `.kbd` file you placed in `/Users/<userID>/.config/kanata/`.*
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -225,9 +235,9 @@ I deeply respect the original developers and recommend reading their documentati
 
 ## Learn More
 
-I’m also writing a Japanese article on Qiita explaining the design process and ergonomic considerations behind this setup.
+I've posted an article on Qiita about the development story, design philosophy, and specific details of this project. Please check it out if you're interested!
 
-👉 [カスタムキーボード設定をKanataで実現した話](#)（近日公開予定）
+👉 [Building a Custom Keymap with Rust Tool "Kanata" x Home Row Mods x Hyper Layer](https://qiita.com/KensukeM/items/2030532d6cd4ec248281)
 
 # License
 

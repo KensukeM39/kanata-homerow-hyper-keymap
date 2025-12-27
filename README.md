@@ -111,7 +111,7 @@ kanata -V
 
 Example (if the username is `KensukeM`):
 ```
-/Users/KensukeM/.config/kanata/
+/Users/KensukeM/.config/kanata/kanata.kbd
 ```
 
 # Startup Configuration (LaunchCtl)
@@ -238,6 +238,8 @@ I deeply respect the original developers and recommend reading their documentati
 I've posted an article on Qiita about the development story, design philosophy, and specific details of this project. Please check it out if you're interested!
 
 👉 [Building a Custom Keymap with Rust Tool "Kanata" x Home Row Mods x Hyper Layer](https://qiita.com/KensukeM/items/2030532d6cd4ec248281)
+
+*Note: This technical article is written in Japanese.*
 
 # License
 

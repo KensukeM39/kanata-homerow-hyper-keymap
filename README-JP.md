@@ -141,7 +141,7 @@ PC起動時に自動的に Kanata が立ち上がるよう設定します。
 
 ※ 注意1: `<userID>` の部分はご自身のユーザー名（`whoami` コマンドで確認可能）に書き換えてください。
 
-※ 注意2: 先ほど`/Users/KensukeM/.config/kanata/`配下に置いた`.kbd`ファイルの名前に合わせて参照するパス（`/Users/<userID>/.config/kanata/kanata.kbd`の部分）を書き換えてください。
+※ 注意2: 先ほど`/Users/<userID>/.config/kanata/`配下に置いた`.kbd`ファイルの名前に合わせて参照するパス（`/Users/<userID>/.config/kanata/kanata.kbd`の部分）を書き換えてください。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
